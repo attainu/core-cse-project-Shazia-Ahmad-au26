@@ -1,8 +1,9 @@
 class Customer:
-    def __init__(self, id,name,address):
-        self.id = id
+    def __init__(self, userName,name,address,mobNo):
+        self.Username = userName
         self.Name = name
         self.Address = address
+        self.MobNo = mobNo
 
 
     def displayDetails(self):
@@ -11,9 +12,6 @@ class Customer:
 
     
 
-    def registerCustomer(self):
-        self.Name = input(" Enter Name :")
-        self.Address = input("Enter Address :")
-        
+    
 
     

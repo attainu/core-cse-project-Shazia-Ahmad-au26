@@ -13,11 +13,11 @@ class Restaurant():
 
     # Input Methods ************************************************************************************************
 
-    def addMenuItems(self,name, price):
-        food = Food(name, price)
+    def addMenuItems(self,foodId,name, price):
+        food = Food(foodId,name, price)
         if name not in self.menu:
             self.menu[name] = food
-            print("INFO : Menu item successfully added")
+           # print("INFO : Menu item successfully added")
         else:
             print("ERROR : Menu item already added")
 
@@ -40,6 +40,7 @@ class Restaurant():
     
     def isOpen(self):
         return self.open
+
 
     def restaurantDetails(self):
         print("Restraunt Id :",self.resId)

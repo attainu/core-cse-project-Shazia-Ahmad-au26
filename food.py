@@ -1,6 +1,7 @@
 class Food :
 
-    def __init__(self,name,price=None,quantity=0):
+    def __init__(self,id,name,price=None,quantity=0):
+        self.id =id
         self.Name = name
         self.Price= price
 
@@ -8,4 +9,4 @@ class Food :
         return self.Price
 
     def __str__(self):
-        return self.Name + ' , Price: ' + str(self.getPrice())
+        return  self.id + " "+self.Name + ' , Price: ' + str(self.getPrice())
