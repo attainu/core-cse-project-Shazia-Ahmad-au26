@@ -8,5 +8,12 @@ class Food :
     def getPrice(self):
         return self.Price
 
+    def getId(self):
+        return self.id
+
+
+
+
+
     def __str__(self):
         return  self.id + " "+self.Name + ' , Price: ' + str(self.getPrice())

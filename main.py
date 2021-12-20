@@ -1,11 +1,14 @@
 from restuarant import Restaurant
 from customer import Customer
+from cart import Cart
 
 
 class Swiggy:
     def __init__(self):
         self.restaurants = {}
         self.customer = {}
+        self.carts = {}
+        self.currentUser = None
 
     #Restaurant methods ****************************************************************
     def addMenuToRestaurant(self, resId,foodId, name, price):
@@ -44,7 +47,21 @@ class Swiggy:
 
     # TODO:********************************************************************************
 
+    def selectFood(self, cartId, foodId,foodObject):
+        cart = self.getCart(cartId)
+        cart.addFoodItems(name, qty)
+        return cart
 
+    def getCart(self, cartid):
+        if cartid in self.carts:
+            return self.carts[cartid]
+        else:
+            cart = Cart(cartid)
+            self.carts[cartid] = cart
+            return cart
+    
+    
+    
     def selectItem(self,resId):
         rest = self.restaurants[resId]
         i=1
@@ -79,14 +96,7 @@ class Swiggy:
             
     
     
-             
-
-
-
-
-
-
-     
+#=======================================================================================================
 
 
 def main():

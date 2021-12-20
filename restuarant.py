@@ -1,4 +1,6 @@
 from food import  Food
+from cart import Cart
+
 class Restaurant():
 
     def __init__(self,resId,resName,address,mobilenum):
@@ -33,8 +35,6 @@ class Restaurant():
     def deleteMenu(self,name):
         self.menu.pop(name)
 
-
-    
 
     # Display methods **************************************************************************************************
     
