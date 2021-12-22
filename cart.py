@@ -3,18 +3,51 @@ from food import Food
 class Cart:
     def __init__(self, cartid):
         self.cartId = cartid
-        self.restaurant = None
+        self.resId = None
         self.items = []
-        self.quantities = []
-        self.price = []
-        self.count = 0
+        self.cartData = {}
+        self.count = {}
+        self.totalQuantity =0
+        self.sumAmount = 0
 
-    def addFoodItems(self, foodId, qty):
-        self.items.append(Food(foodId))
-        self.quantities.append(qty)
-        self.count += int(qty)
-        print("INFO : Food item {} * {} added to your cart[{}]"
-              .format(name, qty, self.cartId))
+    def addFoodItems(self, foodId,foodObject):
+        if foodId not in self.cartData:
+            self.cartData[foodId] =foodObject 
+            self.items.append(self.cartData)
+            self.count[foodId] = 1
+            print("INFO : Food item id {} added to your cart"
+                .format(foodId))
+        elif foodId in self.cartData:
+                self.count[foodId] += 1
+                print("INFO : Food item id {} is updated to your cart"
+                    .format(foodId))
+
+
+    def getTotalAmount(self):
+        sum=0
+        for key,value in self.cartData.items():
+            for countKey,countValue in self.count.items():
+                if key==countKey:
+                    for i in range(0,countValue):
+                        sum += int(value.getPrice())
+        self.sumAmount = sum
+        return self.sumAmount
+                    
+
+    def getItemQuantity(self):
+        quantity =0
+        for key,value in self.cartData.items():
+            for countKey,countValue in self.count.items():
+                if key==countKey:
+                    for i in range(0,countValue):
+                        quantity +=1
+
+        self.totalQuantity = quantity
+        return self.totalQuantity
+
+
+
+
 
     def removeFoodItems(self, food):
         missing = True
@@ -39,3 +72,16 @@ class Cart:
         if missing:
             print("ERROR : This food item [{}] is not in your cart[{}]"
                   .format(food, self.cartId))
+
+
+    def displayCartItems(self):
+        for key,value in self.cartData.items():
+            itemCount = 0
+            for countKey,countValue in self.count.items():
+                    if key==countKey:
+                        for i in range(0,countValue):
+                            itemCount+=1
+            print(f"{itemCount} items of {value.Name}")
+        print("Total Items in cart is : ",self.getItemQuantity())
+        print("Total Price is : ",self.getTotalAmount(),"Rs")
+

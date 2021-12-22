@@ -30,6 +30,6 @@ class Order:
             print(f"{itemCount} items of {value.Name}")
         print("Order is : ",self.odrStatus)
         print("Payment is : ",self.payStatus)
-        print("Total Items in Order is : ",self.totalQuantity)
-        print("Total Price is : ",self.totalAmount,"Rs")
+        print("Total Items in Order is : ",self.totalAmount)
+        print("Total Price is : ",self.totalQuantity,"Rs")
 

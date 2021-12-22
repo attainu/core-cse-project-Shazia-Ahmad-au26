@@ -17,23 +17,23 @@ class Restaurant():
 
     def addMenuItems(self,foodId,name, price):
         food = Food(foodId,name, price)
-        if name not in self.menu:
-            self.menu[name] = food
+        if foodId not in self.menu:
+            self.menu[foodId] = food
            # print("INFO : Menu item successfully added")
         else:
             print("ERROR : Menu item already added")
 
 
-    def updateMenu(self,name,price):
-        food = self.menu[name]
-        if food is not None:
+    def updateMenu(self,foodId,name, price):
+        food = self.menu[foodId]
+        if foodId is not None:
             food.price = price
-            self.menu[name] = food
+            self.menu[foodId] = food
         else :
             print("ERROR : Menu item not found")
 
-    def deleteMenu(self,name):
-        self.menu.pop(name)
+    def deleteMenu(self,foodId):
+        self.menu.pop(foodId)
 
 
     # Display methods **************************************************************************************************
@@ -51,9 +51,6 @@ class Restaurant():
 
 
     def displayMenu(self):
-        #print(self.menu)
-        print()
-        
         for key,value in self.menu.items():
                 print(value)
     
